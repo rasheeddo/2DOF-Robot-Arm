@@ -2,17 +2,17 @@
 
 This project is just a proof of the concept of constant velocity of robot's end-effector motion. This two links robot arm is able to move in approximated straight line in X and Y axes with desired speed. For example, we can give an input like starting point (Xs,Ys) and end point (Xe,Ye) in unit of millimeters, and how much speed you want to travel as i.e. 10mm/s, 30mm/s, 50mm/s and so on. I chose this 2DOF configuration because it's the most simplest form of the robot manipulator that you might see when we were studying Robotics Class. The idea of this will be extended to other configuration as 4DOF palletizer and 6DOF general robots.
 
-![](images/simplelink.jpg)
+![](images/simplelink.JPG)
 
 # Concept
 This two linkage mechanism can move in each individual joint space. To make it move to some specific point (X.Y), we need inverse kinematics. Here you go, that's the solution!. But if we use just a single desired points, we don't know how the robot moves during that points. To make sure the robot will move on specific path, we need to divide that path into many small segments, and if we need a constant speed during the path, we need to make those small segments have a same length.
 
-![](images/simplelink2.jpg)
+![](images/simplelink2.JPG)
 
 ## Example
 We want the robot to start from Xs = 200mm, Ys = 170mm, and move to Xe = 500mm, Ye = 170mm, which means it will move in straight line along x-direction only, so the travel distance is 300mm. We want the robot to move with 30mm/s speed, so to complete this task, the robot would take 10 seconds. Then we divide that path with 300 points, so the gap between each point is 1mm. So moving from point to point, it takes 10sec/300points = 0.033seconds. Then we have a data set of 300points of (X1,Y1), (X2,Y2), (X3,Y3), ... ,(X300,Y300). We can put those data into Inverse Kinematics (you can find this equation every where on internet, Robotics textbook or research papers, this is the most simplest configuration). After that you will know how much angle you need to drive the robot for each (X,Y) points. For implementation, we need to make sure that the robot will move and finish with correct time as we calculated.
 
-![](images/simplelink3.jpg)
+![](images/simplelink3.JPG)
 
 # MATLAB
 I make this M file to test the idea before I test with real servo
@@ -145,9 +145,13 @@ dxl2_goal_position = int(servo_ang2)
 Some offsets as 90.0 and 180.0 are used because depends on how you set the linkage on each servo. For example, I assembled the linkage with servo horn like this
 ![](images/motorset)
 So when I drive the servo to 180deg, it would move to this posture. Two servo are attached to the linkage similar. But when we see to the kinematics of the robot as first figure and the figure below
+
 ![](images/robotframe.JPG)
+
 q1 and q2 are not the direct angle that can apply to the servo, but those q1 and q2 need to have some offset. Let consider this figure below.
+
 ![](images/2dofrobot2.jpg)
+
 At this posture, q1 and q2 suppose to be 0deg both. But for servo1, it's 90deg and for servo2 it's 180deg. So here how comes that offset value.
 The angle and speed value will be changed to byte data, then write to each servo.
 ```
