@@ -2,7 +2,7 @@
 
 This project is just a proof of the concept of constant velocity of robot's end-effector motion. This two links robot arm is able to move in approximated straight line in X and Y axes with desired speed. For example, we can give an input like starting point (Xs,Ys) and end point (Xe,Ye) in unit of millimeters, and how much speed you want to travel as i.e. 10mm/s, 30mm/s, 50mm/s and so on. I chose this 2DOF configuration because it's the most simplest form of the robot manipulator that you might see when we were studying Robotics Class. The idea of this will be extended to other configuration as 4DOF palletizer and 6DOF general robots.
 
-![](images/simplelink.JPG)
+![](images/simeplelink.JPG)
 
 # Concept
 This two linkage mechanism can move in each individual joint space. To make it move to some specific point (X.Y), we need inverse kinematics. Here you go, that's the solution!. But if we use just a single desired points, we don't know how the robot moves during that points. To make sure the robot will move on specific path, we need to divide that path into many small segments, and if we need a constant speed during the path, we need to make those small segments have a same length.
