@@ -199,3 +199,5 @@ for i in range(0,points):
     time.sleep(abs(gap_time-TimeInLoop)) 
 ```
 This for loop is writing the angle and speeed command to servo for each point. I used speed as 0 due to the servo would generate step-profile which give maximum speed. For small movement angle, the step-profile is better to use for incrementally increasing the angle. I measured the time it takes for writing command then subtract to the `gap_time` which is a time taken between two points, then delay the whole loop with this specific time to make sure that the robot will finish the task with desired time (speed). Run this until the last points and you will see that the time it takes in this loop is quite close to our calculation in `finish_time`.
+
+
