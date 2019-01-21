@@ -12,6 +12,8 @@ This two linkage mechanism can move in each individual joint space. To make it m
 ## Example
 We want the robot to start from Xs = 200mm, Ys = 170mm, and move to Xe = 500mm, Ye = 170mm, which means it will move in straight line along x-direction only, so the travel distance is 300mm. We want the robot to move with 30mm/s speed, so to complete this task, the robot would take 10 seconds. Then we divide that path with 300 points, so the gap between each point is 1mm. So moving from point to point, it takes 10sec/300points = 0.033seconds. Then we have a data set of 300points of (X1,Y1), (X2,Y2), (X3,Y3), ... ,(X300,Y300). We can put those data into Inverse Kinematics (you can find this equation every where on internet, Robotics textbook or research papers, this is the most simplest configuration). After that you will know how much angle you need to drive the robot for each (X,Y) points. For implementation, we need to make sure that the robot will move and finish with correct time as we calculated.
 
+![](images/simplelink3)
+
 # MATLAB
 I make this M file to test the idea before I test with real servo
 ```
