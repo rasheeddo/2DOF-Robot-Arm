@@ -143,7 +143,9 @@ dxl1_goal_position = int(servo_ang1)
 dxl2_goal_position = int(servo_ang2)
 ```
 Some offsets as 90.0 and 180.0 are used because depends on how you set the linkage on each servo. For example, I assembled the linkage with servo horn like this
-![](images/motorset)
+
+![](images/motorset.jpg)
+
 So when I drive the servo to 180deg, it would move to this posture. Two servo are attached to the linkage similar. But when we see to the kinematics of the robot as first figure and the figure below
 
 ![](images/robotframe.JPG)
